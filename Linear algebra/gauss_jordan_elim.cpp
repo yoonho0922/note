@@ -1,3 +1,4 @@
+//가우스 조단 소거법 계산 프로그램
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<stdlib.h>
