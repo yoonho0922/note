@@ -7,7 +7,3 @@
 * 주의 : 지정한 커밋 이후에 했던 커밋들은 모두 사라지고 지정한 커밋으로 돌아감
 * 특히 git push origin +master는 강제 푸시로, 잘못 사용하면 돌이킬 수 없는 일이 발생할 수도...
 * [관련 문서](https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-Reset-%EB%AA%85%ED%99%95%ED%9E%88-%EC%95%8C%EA%B3%A0-%EA%B0%80%EA%B8%B0)
-
-
-
-test
