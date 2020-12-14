@@ -7,9 +7,9 @@
 ## Socket
 
 * process와 transport를 연결하는 인터페이스
-* Multiplexing / Demultiplexing at transport layser
-  * Multiplexing (at sender) : handle data from multiple sockets, add transport header
-  * Demultiplexing (at receiver): use header info to deliver recieved segment to correct socket
+* Multiplexing / Demultiplexing at transport layer
+  * Multiplexing (at sender) : 여러 소켓에서 나온 데이터를 전송 계층에서 묶어 하위 계층으로 내보내는 것
+  * Demultiplexing (at receiver): 전송 계층으로 받은 세그먼트들을 알맞은 소켓에 보내는 것
 
 ### Socket types
 
@@ -34,9 +34,10 @@
 * TCP socket idenfied by '4-tuple'
   * source socket address
   * destination socket address
-* transport 계층에서 구분해줌
+* transport 계층에서 구분해서 알맞은 소켓에 보냄
+  * identified by 4-tuple (source/destination ip/port)
 * connection 과정
-  * Client가 Listening socket에 연결 요청 (3-way handshaking)
+  * Client가 서버의 Listening socket에 연결 요청 (3-way handshaking)
   * 서버의 Connection socket과 연결되어 데이터 교환
 
 ### Client+server : connectionless (UDP)
@@ -44,6 +45,7 @@
 ![image-20201204115029457](C:\Users\yoonho\AppData\Roaming\Typora\typora-user-images\image-20201204115029457.png)
 
 * sendto(), recvfrom() : 매번 socket address를 명시해야 함
+* udp는 source에서 할당되는 소켓이 하나이기 때문에 매번 목적지를 알아야함
 
 ### Client+server : connection-oriented (TCP)
 

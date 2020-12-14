@@ -20,10 +20,6 @@ Collision을 막거나 감지하기위한 제어
 
 Collision은 곧 data loss
 
-* Random Access Control
-* Controlled Access
-* Channelized Access
-
 **Wireless Medium**
 
 무선 환경 특징
@@ -65,8 +61,9 @@ distnace에 따른 시그널 감쇠의 영향
 
 #### CSMA
 
-* Collision Sense Multiple Access
+* Carrier Sense Multiple Access
 * 시그널을 보내기 전에 다른 station이 시그널을 보내고 있는지 확인
+  * propagation delay 때문에 완전히 보장하지는 못함
 * 한계
   * 충돌 가능성을 줄일 순 있지만 전파 지연 때문에 없앨 순 없음
   * sender가 충돌이 일어난지 알 수 없음 - time out이 될 때까지 기다려야함

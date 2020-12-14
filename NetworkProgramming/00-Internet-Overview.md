@@ -50,18 +50,18 @@ sharing에 유리한 방식
 3. 큐잉 딜레이
 4. 프로세싱 딜레이 : 패킷을 어디로 보낼지 결정하는 시간
 
-### Throughput
+d(nodal) = d(proc) + d(queue) + d(trans) + d(prop)
+
+### Throughput : reciever sender 전송 속도
 
 trasmission rate : 패킷을 올리는 속도
-
-##### Throughput : 실제로 서비스 받는 데이터의 속도
 
 ### Two key network-core function
 
 * routing : 목적지에 따라 경로를 결정하는 것
 * forwarding : 패킷을 실제로 보내는 행위
 
-### Circuit switching 
+## Circuit switching 
 
 패킷 스위칭의 alternative
 

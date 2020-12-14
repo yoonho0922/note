@@ -29,7 +29,7 @@
 ### Transport Layer
 
 * Process (or port) addressing
-* Segmentation and reassembly of a message
+* Segmentation and reassemble of a message
   * a process : 실행 중인 프로그램, 실존하는 객체(하나의 인스턴스)
   * process-to-process delivery
   * segmentation : session에서 받은 큰 데이터를 분할
@@ -55,6 +55,7 @@
 * Flow control : 리시버가 overflow되는 걸 막음
 * Error control
 * Access control : 동시에 들어오는 데이터에 대해 충돌나지 않도록 제어
+* hop-to-hop delivery
 
 ### Physical Layer
 
@@ -79,7 +80,7 @@ OSI 7계층을 묶어 더 간단하게 규정
 * MAC 주소
 * 공장에서 기계에 일련번호를 할당. (공장마다 할당된 일련번호가 있음)
 
-* LAN 마다 바뀜
+* LAN에 모든 physical address 는 달라야함
 
  ### Logical Address
 

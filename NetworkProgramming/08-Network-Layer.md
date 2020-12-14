@@ -1,17 +1,17 @@
-### Netowrk layser functions
+### Netowrk layer functions
 
 * packetizing
-  * encapsulating the payload int a network-layer paceket at the source
-  * decapsulating the payload from the network-layer packet at the destination
-  * to carry a payload from the source to the detination without changing it our using it
+  * source에서 payload를 네트워크 계층 패킷으로 encapsulating
+  * destination에서 네트워크 계층 패킷을 decapsulating하여 payload를 얻음
+  * soure에서 destination까지 payload를 변경하거나 사용하지 않고 전송
 * routing and forwarding
-  * forwarding : move packets from router's input to appropriate router output
-  * routing : determine route taken by packets from sorce to dest
+  * forwarding : 패킷을 라우터의 인풋에서 적절한 아우풋으로 옮김
+  * routing : source부터 destination 까지의 패킷의 경로를 결정하는 것
   * 라우팅 알고리즘에 의해 forwarding table 결정, 이를 통해 forwarding
 
 ## Routing algorithms overview
 
-* key question : wiat is the least-cost path between source and destination
+* key question : source와 destination 간의 leaset-cost 경로가 무엇인가
 * routing algorithm : to find that least-cost path
 
 ### Routing algorithm classfication
@@ -36,14 +36,15 @@ static or dynamic
 
 ##### Link-State Routing Algorithm
 
-Dijkstra's algorithm
+* Dijkstra's algorithm
 
+* 모든 노드까지의 최단 경로를 저장
 * net topology & link costs are known to all nodes
-* computes lest cost path from one node to all nodes
+* computes least cost path from one node to all nodes
 
 ##### distance-vector Algorithm
 
-Bellman-ford equation : calculate the short path from neighbor information
+* Bellman-ford equation : calculate the shortest path from neighbor information
 
 * distance-vector : node X 까지 가는 최단 경로와 cost
 * node X의 neighbor가 자신의 distance-vector를 알려줌
@@ -81,6 +82,7 @@ Bellman-ford equation : calculate the short path from neighbor information
     * The local(limited) broadcast : 내가 속한 network의 모든 노드
     * the directed brodadcast address : 특정 서브넷에 속한 모드 노드
   * multicast (one-to-several)
+* TTL : 라우터를 거칠 때 마다 1씩 감소하며, 네트워크에서 routing loop를 방지
 
 ### Maximum Transmission Unit
 
@@ -103,29 +105,39 @@ Bellman-ford equation : calculate the short path from neighbor information
 
 Dynamic Host Configuration Protocol
 
+호스트에 IP 주소를 할당하는 방법
+
 장점
 
-* IP address are assigned on-demand(필요할때 할당받는)
-* Avoid manual IP configuration
-* Support mobility of labtops
+* iP주소를 필요할 때마다 할당 받음
+* 수동적인 IP 설정을 하지 않아도 됨
+* 무선 환경을 지원함
 
 BOOTP의 확장
+
+* 부팅할 때 ip 주소를 포함하여 다양한 정보를 가져오는 프로토콜
 
 과정
 
 * hosts broadcasts "DHCP discover" msg
+  * DHCP 서버를 브로드캐스트로 찾음
 * DHCP server responds with "DHCP offer" msg
+  * 서버가 요청에 응답하고 자신의 주소와 할당가능한 IP주소를 알려줌
 * host requests IP address : "DHCP request" msg
+  * 서버에게 받은 할당 가능한 IP 주소로 할당을 요청함
 * DHCP server sends address "DHCP ack" msg
+  * IP 주소를 할당해주고 요청에 대한 응답
 
 
 
-How does network get subnet part of IP addr
+주소 블록을 서브넷에 할당하는 방법
 
 * Networks gets allocated portion of its provider ISP's addr space
 * ISP가 할당한 블록을 서브넷마스크를 늘려서 나눈다. -> 서브넷팅
 
-How does an ISP get block of addr
+
+
+ISP가 IP 블록을 할당 받는 방법
 
 * 국제 기관에서 수동으로 할당
 
@@ -146,8 +158,7 @@ ICMP는 상위 계층의 메시지를 포함하지 않는다.
 ICMP Type field
 
 * Error reporting
-  * 3 : Destination Unreachable
-    * ureachable한 이유는 code 필드로 명시
+  * 3 : Destination Unreachable (ureachable한 이유는 code 필드로 명시)
   * ...
 * Query
   * 8/0 : Echo request or reply
@@ -156,10 +167,10 @@ ICMP Type field
 Content of data field for error messages
 
 * 에러를 알리는 패킷의 경우 추가로 필드를 가짐
-  * 에러난 패킷의 IP 헤더와 에러난 패킷의 payload의 앞 8byte
+  * 에러난 패킷의 IP 헤더와 에러난 패킷의 payload(TCP/UDP)의 앞 8byte
     * 앞 8byte는 port number와 sequence number를 가짐
 
-ICMP는 4바이트를 고정 필드록 갖고 용도에 따라 추가필드를 다르게 함
+ICMP는 4바이트를 고정 필드로 갖고 용도에 따라 추가필드를 다르게 함
 
 * Echo-request and echo-reply
   * ping에서 사용되는 패킷
